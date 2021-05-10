@@ -8,6 +8,13 @@ from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 
 from modules import move_forward
+
+import time
+#importing homemade modules
+from modules import defineObs
+from modules import movement
+
+
 # This program requires LEGO EV3 MicroPython v2.0 or higher.
 # Click "Open user guide" on the EV3 extension tab for more information.
 
