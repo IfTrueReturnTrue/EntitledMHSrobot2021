@@ -1,8 +1,7 @@
+'''
 def touchSensing():
-    if touchSensor.is_pressed() == True:
-        return True
-    else:
-        return False
+    return touchSensor.is_pressed()
+    
 somevalue = 0
 def ultraSensingForMovement():
     currentObjLocation = ultrasonic.distance_centimeters()
@@ -18,6 +17,6 @@ def ultraSensingForMovement():
 def ultraSensingForStill():
     currentObjDistance = ultrasonic.distance_centimeters()
     
-    
+'''  
 
 

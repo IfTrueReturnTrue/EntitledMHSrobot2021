@@ -1,12 +1,11 @@
-#!/usr/bin/env pybricks-micropython
+#!/usr/bin/eom ev3sim-micropython
 
-from pybricks.hubs import EV3Brick
-from pybricks.ev3devices import (Motor, TouchSensor, ColorSensor,
-                                 InfraredSensor, UltrasonicSensor, GyroSensor, CompassSensor)
-from pybricks.parameters import Port, Stop, Direction, Button, Color
-from pybricks.tools import wait, StopWatch, DataLog
-from pybricks.robotics import DriveBase
-from pybricks.media.ev3dev import SoundFile, ImageFile
+
+from ev3dev2.motor import LargeMotor, MediumMotor, OUTPUT_A, OUTPUT_B, OUTPUT_C, OUTPUT_D
+from ev3dev2.sensor import INPUT_1, INPUT_2, INPUT_3, INPUT_4
+from ev3dev2.sensor.lego import ColorSensor, UltrasonicSensor
+
+
 
 
 import time
@@ -16,27 +15,19 @@ import time
 # Click "Open user guide" on the EV3 extension tab for more information.
 
 
-# Create your objects here.
-ev3 = EV3Brick()
-
-
-
-# Write your program here.
-ev3.speaker.beep()
-
 #Commence parts testing:
 #define functions here
 def defineObjectsAttack():
     #initialise motors (omni wheels)
-    motor1 = MediumMotor("outA")
-    motor2 = MediumMotor("outC")
-    motor3 = MediumMotor("outB")
-    motor4 = MediumMotor("outD")
+    motor1 = MediumMotor(OUTPUT_A)
+    motor2 = MediumMotor(OUTPUT_B)
+    motor3 = MediumMotor(OUTPUT_C)
+    motor4 = MediumMotor(OUTPUT_D)
     
     #init sensors
-    compass = CompassSensor("in1")
-    ultrasonicFront = UltrasonicSensor("in2")
-    ultrasonicLeft  = UltrasonicSensor("in3")
+    
+    ultrasonicFront = UltrasonicSensor(INPUT_2)
+    ultrasonicLeft  = UltrasonicSensor(INPUT_3)
 #SPEED between 0, 100
 def moveAtSpeedinDir(s, dir):
     try:
@@ -54,13 +45,11 @@ def moveAtSpeedinDir(s, dir):
             motor1.on_for_rotations(s,  rot)  
             motor3.on_for_rotations(s,  rot)
         else:
-            ev3.screen.draw_text(40, 50, "Input into function was not valid!")
-            ev3.beep()
+            pass
             
         
     except:
-        ev3.screen.draw_text(40, 50, "Error! Something went wrong!")
-        ev3.beep()
+        pass
 
 def sqrt(num):
     return num**0.5

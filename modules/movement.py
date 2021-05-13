@@ -1,4 +1,5 @@
 #SPEED between 0, 100
+'''
 def moveAtSpeedinDir(s, dir):
     try:
         rot = 3
@@ -23,7 +24,7 @@ def moveAtSpeedinDir(s, dir):
         ev3.screen.draw_text(40, 50, "Error! Something went wrong!")
         ev3.beep()
 
-
+'''
 
 
         
