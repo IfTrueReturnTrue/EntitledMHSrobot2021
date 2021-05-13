@@ -1,12 +1,12 @@
 def defineObjectsAttack():
-    #make sure two large motors attached to output a and b
-    driveMotor = MoveTank(OUTPUT_A, OUTPUT_B)
-    #initialise gryosensor
-    driveMotor.gyro = GyroSensor()
-    tank.gryo.calibrate()
-    #other sensors
-    punchMotor = MediumMotor(OUTPUT_C)
-    touchSensor = TouchSensor(INPUT_1)
+    #initialise motors (omni wheels)
+    motor1 = MediumMotor(OUPUT_A)
+    motor2 = MediumMotor(OUTPUT_B)
+    motor3 = MediumMotor(OUTPUT_C)
+    motor4 = MediumMotor(OUTPUT_D)
+    #init sensors
+    compass = CompassSensor(INPUT_3)
+    
     ultrasonic = UltrasonicSensor(INPUT_2)
 
 def defineObjectsDefend():
