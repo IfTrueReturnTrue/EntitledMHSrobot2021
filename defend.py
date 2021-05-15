@@ -28,7 +28,7 @@ ev3 = EV3Brick()
 ev3.speaker.beep()
 
 #Commence parts testing:
-defineObjectsDefend()
+defineObjectsDefend()    
 while True:
     foo = True
     
