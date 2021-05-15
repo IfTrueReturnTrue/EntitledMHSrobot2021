@@ -31,19 +31,19 @@ ultrasonicLeft  = UltrasonicSensor(INPUT_3)
 #SPEED between 0, 100
 def moveatspeedindir(s, dir):
     try:
-        rot = 3
+        rot = 1
         if dir == "left":
-            motor2.on_for_rotations(s,  rot)#here   rot is only a placeholder.
+            motor3.on_for_rotations(s,  rot)#here   rot is only a placeholder.
             motor4.on_for_rotations(s,  rot)#negative   rot for opposite to normal
         elif dir == "right":
-            motor2.on_for_rotations(s,  rot)
-            motor4.on_for_rotations(s,  rot)  
+            motor3.on_for_rotations(s,  -rot)
+            motor4.on_for_rotations(s,  -rot)  
         elif dir == "up":
             motor1.on_for_rotations(s,  rot)
-            motor3.on_for_rotations(s,  rot)
+            motor2.on_for_rotations(s,  rot)
         elif dir == "down":
-            motor1.on_for_rotations(s,  rot)  
-            motor3.on_for_rotations(s,  rot)
+            motor1.on_for_rotations(s,  -rot)  
+            motor2.on_for_rotations(s,  -rot)
         else:
             pass
             
@@ -57,7 +57,7 @@ def sqrt(num):
 somevalue = 0
 def ultraSensingForMovement():
 
-    errorAmount = 3
+    errorAmount =3
     forwardFB=ultrasonicFront.distance_centimeters
     sideFB=ultrasonicLeft.distance_centimeters
     oppCalc1 = sideFB/2
@@ -65,22 +65,30 @@ def ultraSensingForMovement():
     if oppCalc1 - oppCalc2 < abs(errorAmount):
         
         print("There is a wall")
+        return False
     else:
         
         print("There is a ball.")
+        return True
+
 
     
     
 
 
 
-while True:
-    foo = 0
-    print("yes")
-    #make it point in direction of the opponent's goal
-    ultraSensingForMovement()
-    time.sleep(1)
-    
-    
+
+foo = 0
+print("yes")
+#make it point in direction of the opponent's goal
+ultraSensingForMovement()
+if ultraSensingForMovement():
+
+    for x in range(5):
+
+        moveatspeedindir(100, "right")
+time.sleep(1)
+
+
 
     
