@@ -17,19 +17,19 @@ import time
 
 #Commence parts testing:
 #define functions here
-def defineObjectsAttack():
+motor1 = MediumMotor(OUTPUT_A)
+motor2 = MediumMotor(OUTPUT_B)
+motor3 = MediumMotor(OUTPUT_C)
+motor4 = MediumMotor(OUTPUT_D)
+
+#init sensors
+
+ultrasonicFront = UltrasonicSensor(INPUT_2)
+ultrasonicLeft  = UltrasonicSensor(INPUT_3)
     #initialise motors (omni wheels)
-    motor1 = MediumMotor(OUTPUT_A)
-    motor2 = MediumMotor(OUTPUT_B)
-    motor3 = MediumMotor(OUTPUT_C)
-    motor4 = MediumMotor(OUTPUT_D)
     
-    #init sensors
-    
-    ultrasonicFront = UltrasonicSensor(INPUT_2)
-    ultrasonicLeft  = UltrasonicSensor(INPUT_3)
 #SPEED between 0, 100
-def moveAtSpeedinDir(s, dir):
+def moveatspeedindir(s, dir):
     try:
         rot = 3
         if dir == "left":
@@ -49,34 +49,36 @@ def moveAtSpeedinDir(s, dir):
             
         
     except:
+        print("Error, something happened.")
         pass
 
 def sqrt(num):
     return num**0.5
 somevalue = 0
 def ultraSensingForMovement():
+
     errorAmount = 3
-    forwardFB=ultrasonicFront.distance_centimeters()
-    sideFB=ultrasonicLeft.distance_centimeters()
+    forwardFB=ultrasonicFront.distance_centimeters
+    sideFB=ultrasonicLeft.distance_centimeters
     oppCalc1 = sideFB/2
     oppCalc2 = forwardFB*(3/(sqrt(3)))
     if oppCalc1 - oppCalc2 < abs(errorAmount):
-        return False
+        
         print("There is a wall")
     else:
-        return True
+        
         print("There is a ball.")
 
     
     
 
 
-defineObjectsAttack()
+
 while True:
     foo = 0
     print("yes")
     #make it point in direction of the opponent's goal
-    
+    ultraSensingForMovement()
     time.sleep(1)
     
     
