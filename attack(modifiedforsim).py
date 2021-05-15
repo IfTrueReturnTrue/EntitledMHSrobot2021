@@ -11,8 +11,7 @@ from ev3dev2.sensor.lego import ColorSensor, UltrasonicSensor
 import time
 
 
-# This program requires LEGO EV3 MicroPython v2.0 or higher.
-# Click "Open user guide" on the EV3 extension tab for more information.
+
 
 
 #Commence parts testing:
@@ -33,10 +32,10 @@ def moveatspeedindir(s, dir):
     try:
         rot = 1
         if dir == "left":
-            motor3.on_for_rotations(s,  rot)#here   rot is only a placeholder.
-            motor4.on_for_rotations(s,  rot)#negative   rot for opposite to normal
+            motor3.on_for_rotations(s,  rot)#here rot is only a placeholder.
+            motor4.on_for_rotations(s,  rot)
         elif dir == "right":
-            motor3.on_for_rotations(s,  -rot)
+            motor3.on_for_rotations(s,  -rot)  #negative rot for opposite to normal
             motor4.on_for_rotations(s,  -rot)  
         elif dir == "up":
             motor1.on_for_rotations(s,  rot)
@@ -78,14 +77,13 @@ def ultraSensingForMovement():
 
 
 
-foo = 0
-print("yes")
-#make it point in direction of the opponent's goal
-ultraSensingForMovement()
+
+print("yes") #test if everything is working (no syntatical errors)
+
+ultraSensingForMovement() # initial test
 if ultraSensingForMovement():
-
-    for x in range(5):
-
+    #5 is just an arbritrary number below. 
+    for x in range(5): #This just repeats the movement 5 times
         moveatspeedindir(100, "right")
 time.sleep(1)
 
