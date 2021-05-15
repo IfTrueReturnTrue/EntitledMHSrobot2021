@@ -1,5 +1,5 @@
 #!/usr/bin/env pybricks-micropython
-
+'''
 from pybricks.hubs import EV3Brick
 from pybricks.ev3devices import (Motor, TouchSensor, ColorSensor,
                                  InfraredSensor, UltrasonicSensor, GyroSensor, CompassSensor)
@@ -89,7 +89,7 @@ while True:
     #make it point in direction of the opponent's goal
     
     time.sleep(1)
-    
+'''
     
 
     

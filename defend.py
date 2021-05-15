@@ -1,4 +1,5 @@
 #!/usr/bin/env pybricks-micropython
+'''
 from EntitledMHSrobot2021.modules.defineObs import defineObjectsAttack
 from pybricks.hubs import EV3Brick
 import sys
@@ -31,4 +32,4 @@ ev3.speaker.beep()
 defineObjectsDefend()    
 while True:
     foo = True
-    
+'''
