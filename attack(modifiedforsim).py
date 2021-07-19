@@ -1,10 +1,7 @@
 from ev3dev2.motor import LargeMotor, MediumMotor, OUTPUT_A, OUTPUT_B, OUTPUT_C, OUTPUT_D
 from ev3dev2.sensor import INPUT_1, INPUT_2, INPUT_3, INPUT_4
 from ev3dev2.sensor.lego import ColorSensor, UltrasonicSensor
-
-
-
-
+from ev3dev2.sensor import Sensor
 import time
 import threading
 
@@ -29,20 +26,28 @@ ultrasonicLeft  = UltrasonicSensor(INPUT_3)
 #S = SECONDS
 #K = SPEED MULTIPLIER (-1 or 1)
 #this function runs individual motors. Note that north and south motors are facing east, etc... Refer to #append at function definitions
+
+'''
+Note that the structure of the motors are like this:
+            Motor 3: North
+
+Motor 1: West          Motor 2 East
+
+
+            Motor 4: South
+'''
 def runmotor(s, k, motor):
     try:
-        if motor == "north":
-            motor1.on_for_seconds(100 * k, s)
-        elif motor == "south":
+        if motor == "northmot":
             motor3.on_for_seconds(100 * k, s)
-        elif motor == "east":
-            motor2.on_for_seconds(100 * k, s)
-        elif motor == "west":
+        elif motor == "southmot":
             motor4.on_for_seconds(100 * k, s)
+        elif motor == "eastmot":
+            motor2.on_for_seconds(100 * k, s)
+        elif motor == "westmot":
+            motor1.on_for_seconds(100 * k, s)
         else:
             pass
-
-
     except:
         print("Error, something happened.")
         pass
@@ -51,17 +56,17 @@ def runmotor(s, k, motor):
 def movedir(s, direction):
     try:
         if direction == "north":
-            threading.Thread(target=runmotor, args=(1, 1, "east")).start()
-            threading.Thread(target=runmotor, args=(1, 1, "west")).start()
+            threading.Thread(target=runmotor, args=(1, 1, "eastmot")).start()
+            threading.Thread(target=runmotor, args=(1, 1, "westmot")).start()
         elif direction == "south":
-            threading.Thread(target=runmotor, args=(1, -1, "east")).start()
-            threading.Thread(target=runmotor, args=(1, -1, "west")).start()
+            threading.Thread(target=runmotor, args=(1, -1, "eastmot")).start()
+            threading.Thread(target=runmotor, args=(1, -1, "westmot")).start()
         elif direction == "east":
-            threading.Thread(target=runmotor, args=(1, 1, "north")).start()
-            threading.Thread(target=runmotor, args=(1, 1, "south")).start()
+            threading.Thread(target=runmotor, args=(1, 1, "northmot")).start()
+            threading.Thread(target=runmotor, args=(1, 1, "southmot")).start()
         elif direction == "west":
-            threading.Thread(target=runmotor, args=(1, -1, "north")).start()
-            threading.Thread(target=runmotor, args=(1, -1, "south")).start()
+            threading.Thread(target=runmotor, args=(1, -1, "northmot")).start()
+            threading.Thread(target=runmotor, args=(1, -1, "southmot")).start()
         else:
             pass
 
@@ -97,11 +102,14 @@ def ultraSensingForMovement():
         print("There is a ball.")
         return True'''
 
-while(True):
+while True:
     print("start")
     ultraSensingForMovement()
-    movedir(1, "north") #keeping to one second to match with time sleep, so stacking does not occur
-    movedir(1, "east") #can edit this in if functions to match with ball sense.
+    if ultraSensingForMovement():
+        movedir(1, "east")
+    else:
+        movedir(1, "north")
+ #can edit this in if functions to match with ball sense.
                        #Though would not recommend as ball sense is still highly innacurate
     print("end")
     time.sleep(1)
