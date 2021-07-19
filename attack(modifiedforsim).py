@@ -1,6 +1,6 @@
 from ev3dev2.motor import LargeMotor, MediumMotor, OUTPUT_A, OUTPUT_B, OUTPUT_C, OUTPUT_D
 from ev3dev2.sensor import INPUT_1, INPUT_2, INPUT_3, INPUT_4
-from ev3dev2.sensor.lego import ColorSensor, UltrasonicSensor
+from ev3dev2.sensor.lego import ColorSensor, UltrasonicSensor, InfraredSensor
 from ev3dev2.sensor import Sensor
 import time
 import threading
@@ -21,7 +21,13 @@ motor4 = MediumMotor(OUTPUT_D)
 
 ultrasonicFront = UltrasonicSensor(INPUT_2)
 ultrasonicLeft  = UltrasonicSensor(INPUT_3)
+infraredSensor = InfraredSensor(INPUT_4)
     #initialise motors (omni wheels)
+
+#Define some really important variables
+BallHeading = 0
+ballDistanceInCentimeter = 0
+channel = 1 #The channel will probably be given on the day
 
 #S = SECONDS
 #K = SPEED MULTIPLIER (-1 or 1)
@@ -75,10 +81,21 @@ def movedir(s, direction):
         print("Error, something happened.")
         pass
 
+def findPosUsingInfrared():
+    BallHeading = infraredSensor.heading()
+    ballDistanceInCentimeter = InfraredSensor.distance() * 0.7
 
+    print("Lol")
+
+def followBall(BallHeading, ballDistanceInCentimeter):
+    pass
 def sqrt(num):
     return num**0.5
+
+
 somevalue = 0
+
+
 def ultraSensingForMovement():
 
     errorAmount = 0
