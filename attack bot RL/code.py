@@ -33,19 +33,33 @@ def motorsOff():
     motor3.off()   
     motor4.off()
 
+def detect_ball():
+    infraredSensor = 0
+    sense = 0
+    if infraredSensor == sense:
+        return True
+    else:
+        return False
+    
+
 while(True):
-    try: 
-        movement("North", 100)
-        movement("East", 100)
-        time.sleep(2)
-        motorsOff()
-        movement("South", 100)
-        movement("West", 100)
-        time.sleep(2)
-        motorsOff()
-    except KeyboardInterrupt as error:
-        motor1.off()
-        motor2.off()
-        motor3.off()    
-        motor4.off()
-        raise error
+    if detect_ball():
+
+        try: 
+            movement("North", 100)
+            movement("East", 100)
+            time.sleep(2)
+            motorsOff()
+            movement("South", 100)
+            movement("West", 100)
+            time.sleep(2)
+            motorsOff()
+        except KeyboardInterrupt as error:
+            motor1.off()
+            motor2.off()
+            motor3.off()    
+            motor4.off()
+            raise error
+    else:
+        try:
+            print("There is no ball detected")
