@@ -1,0 +1,16 @@
+C:\Program Files (x86)\EV3Sim\ev3sim\examples\robots\robotics_soccer\EntitledMHSrobot2021\attack bot RL\stuf\obj\Debug\net5.0\stuf.csproj.AssemblyReference.cache
+C:\Program Files (x86)\EV3Sim\ev3sim\examples\robots\robotics_soccer\EntitledMHSrobot2021\attack bot RL\stuf\obj\Debug\net5.0\stuf.GeneratedMSBuildEditorConfig.editorconfig
+C:\Program Files (x86)\EV3Sim\ev3sim\examples\robots\robotics_soccer\EntitledMHSrobot2021\attack bot RL\stuf\obj\Debug\net5.0\stuf.AssemblyInfoInputs.cache
+C:\Program Files (x86)\EV3Sim\ev3sim\examples\robots\robotics_soccer\EntitledMHSrobot2021\attack bot RL\stuf\obj\Debug\net5.0\stuf.AssemblyInfo.cs
+C:\Program Files (x86)\EV3Sim\ev3sim\examples\robots\robotics_soccer\EntitledMHSrobot2021\attack bot RL\stuf\obj\Debug\net5.0\stuf.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\EV3Sim\ev3sim\examples\robots\robotics_soccer\EntitledMHSrobot2021\attack bot RL\stuf\bin\Debug\net5.0\stuf.exe
+C:\Program Files (x86)\EV3Sim\ev3sim\examples\robots\robotics_soccer\EntitledMHSrobot2021\attack bot RL\stuf\bin\Debug\net5.0\stuf.deps.json
+C:\Program Files (x86)\EV3Sim\ev3sim\examples\robots\robotics_soccer\EntitledMHSrobot2021\attack bot RL\stuf\bin\Debug\net5.0\stuf.runtimeconfig.json
+C:\Program Files (x86)\EV3Sim\ev3sim\examples\robots\robotics_soccer\EntitledMHSrobot2021\attack bot RL\stuf\bin\Debug\net5.0\stuf.runtimeconfig.dev.json
+C:\Program Files (x86)\EV3Sim\ev3sim\examples\robots\robotics_soccer\EntitledMHSrobot2021\attack bot RL\stuf\bin\Debug\net5.0\stuf.dll
+C:\Program Files (x86)\EV3Sim\ev3sim\examples\robots\robotics_soccer\EntitledMHSrobot2021\attack bot RL\stuf\bin\Debug\net5.0\ref\stuf.dll
+C:\Program Files (x86)\EV3Sim\ev3sim\examples\robots\robotics_soccer\EntitledMHSrobot2021\attack bot RL\stuf\bin\Debug\net5.0\stuf.pdb
+C:\Program Files (x86)\EV3Sim\ev3sim\examples\robots\robotics_soccer\EntitledMHSrobot2021\attack bot RL\stuf\obj\Debug\net5.0\stuf.dll
+C:\Program Files (x86)\EV3Sim\ev3sim\examples\robots\robotics_soccer\EntitledMHSrobot2021\attack bot RL\stuf\obj\Debug\net5.0\ref\stuf.dll
+C:\Program Files (x86)\EV3Sim\ev3sim\examples\robots\robotics_soccer\EntitledMHSrobot2021\attack bot RL\stuf\obj\Debug\net5.0\stuf.pdb
+C:\Program Files (x86)\EV3Sim\ev3sim\examples\robots\robotics_soccer\EntitledMHSrobot2021\attack bot RL\stuf\obj\Debug\net5.0\stuf.genruntimeconfig.cache
