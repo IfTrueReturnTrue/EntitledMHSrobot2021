@@ -30,6 +30,22 @@ def movement(direction, rotations):
         motor1.on_for_rotations(-100, rotations, block=False)
         motor3.on_for_rotations(100, rotations, block=False)
 
+
+def moveyes(direction, time, power):
+    if(direction == "North"):
+        motor2.run_time(-power, time )
+        motor4.run_time(power, time )
+    if(direction == "East"):
+        motor1.run_time(power, time)
+        motor3.run_time(-power, time)
+    if(direction == "South"):
+        motor2.run_time(power, time)
+        motor4.run_time(-power, time)
+    if(direction == "West"):
+        motor1.run_time(-power, time)
+        motor3.run_time(power, time)
+
+
 def motorsOff():
     motor1.off()
     motor2.off()
@@ -47,30 +63,36 @@ def detect_ball():
     
     if infrared.beacon():
         vector = Vector2(infrared.beacon()[0], infrared.beacon()[1])
+        return vector
     else:
         return False
     
 
-while(True):
+while True:
     if detect_ball():
+        vect = detect_ball()
+        if vect.x_component < 0:
+            param1 = "West"
+        elif vect.x_component > 0:
+            param1 = "East"
+
+        
+        if vect.y_component < 0:
+            param2 = "South"
+        elif vect.y_component > 0:
+            param2 = "North"
 
         try: 
-            movement("North", 100)
-            movement("East", 100)
-            time.sleep(2)
-            motorsOff()
-            movement("South", 100)
-            movement("West", 100)
-            time.sleep(2)
-            motorsOff()
+            movement(param1, 1, vect.x_component)
+            movement(param2, 1, vect.y_component)
+            
+            
         except KeyboardInterrupt as error:
-            motor1.off()
-            motor2.off()
-            motor3.off()    
-            motor4.off()
+            motorsOff()
             raise error
     else:
         try:
             print("There is no ball detected")
-        except:
+        except KeyboardInterrupt as error:
+            motorsOff()
             raise error
